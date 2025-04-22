@@ -37,7 +37,7 @@ function changeSlide(index) {
 // Auto-slide (Optional)
 setInterval(() => {
   changeSlide(currentSlide + 1);
-}, 4000);
+}, 4500);
 
 let startX = 0;
 
