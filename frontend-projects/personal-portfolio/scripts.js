@@ -1,42 +1,35 @@
-// Smooth Scrolling for Navigation Links
-// Smooth scrolling when navigation links are clicked
-const navLinks = document.querySelectorAll('.nav-links a');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        
-        const targetId = this.getAttribute('href').substring(1); // Get the target section ID
-        const targetElement = document.getElementById(targetId);
-        
-        window.scrollTo({
-            top: targetElement.offsetTop - 50, // Adjust scroll position
-            behavior: 'smooth' // Smooth scroll effect
-        });
+// Smooth scrolling
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      const offset = 60;
+      const pos = target.offsetTop - offset;
+  
+      window.scrollTo({ top: pos, behavior: 'smooth' });
     });
-});
-
-
-// Highlight Active Section in Navigation
-const sections = document.querySelectorAll('section');
-const navLinksUpdated = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-    let currentSection = '';
-    
+  });
+  
+  // Highlight active section
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+  
+    let currentId = '';
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop - 100 && pageYOffset < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
-        }
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 100 && pageYOffset < sectionTop + sectionHeight) {
+        currentId = section.getAttribute('id');
+      }
     });
-    
-    navLinksUpdated.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === currentSection) {
-            link.classList.add('active');
-        }
+  
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === currentId) {
+        link.classList.add('active');
+      }
     });
-});
+  });
+  
