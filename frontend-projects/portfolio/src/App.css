@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header ul li {
+  @apply px-1.5;
+}
+
+.bg-color-1 {
+  background: #ccd5ae;
+}
+
+.bg-color-2 {
+  background: #e9edc9;
+}
+
+.bg-color-3 {
+  background: #fefae0;
+}
+
+.bg-color-4 {
+  background: #faedcd;
+}
+
+.bg-color-5 {
+  background: #d4a373;
+}
+
+.bg-color-6 {
+  background-color: #f9b379;
+}
+
+.bg-color-7 {
+  background: rgb(239, 199, 139);
+}
+
+.bg-color-8 {
+  background: #f29e5a;
+}
+
+.mobile-nav {
+  background-color: #fefae0;
+  @apply fixed top-10 left-0 w-full h-1/5;
+}
+
+.mobile-nav li{
+  @apply w-full h-full text-center border-b-2 border-amber-700;
+}
+
+.portfolio-name {
+  color: #b45309;
+  font-size: 20px;
+}
+
+.text-c-1 {
+  color: #000;
+}
+
+.project-desc {
+  @apply absolute left-0 right-0 bottom-0 top-0 bg-color-5 opacity-0 duration-500 hover:opacity-100;
+}
+
+.btn {
+  @apply bg-color-1 px-5 py-2 font-bold hover:border-2 border-[#b45309] rounded;
+}
+
+html {
+  scroll-behavior: smooth;
+}
