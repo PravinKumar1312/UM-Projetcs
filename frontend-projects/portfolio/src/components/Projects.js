@@ -9,19 +9,19 @@ export default function Projects () {
             {
                 image: projectsImg1,
                 description: 'A Image-Slider website. Built with HTML, CSS & JS..!',
-                link: ''
+                link: 'https://github.com/PravinKumar1312/UM-Projetcs/tree/main/frontend-projects/portfolio/image-slider'
             },
 
             {
                 image: projectsImg2,
                 description: 'A Expence-Tracker website. Built with HTML, CSS & JS..!',
-                link: ''
+                link: 'https://github.com/PravinKumar1312/UM-Projetcs/tree/main/frontend-projects/portfolio/expense-tracker'
             },
 
             {
                 image: projectsImg3,
                 description: 'A To-Do-List website. Built with HTML, CSS & JS..!',
-                link: ''
+                link: 'https://github.com/PravinKumar1312/UM-Projetcs/tree/main/frontend-projects/portfolio/to-do-list-website'
             }
         ]
     }

@@ -3,7 +3,7 @@ import ResumeImg from '../assets/resume.jpg';
 export default function Resume () {
 
     const config = {
-        link: 'https://github.com/PravinKumar1312'
+        link: 'https://github.com/PravinKumar1312/Resume/blob/main/Resume%20-%201.pdf'
     }
 
     return <section className='flex flex-col md:flex-row bg-color-7 px-5' id='resume'>
