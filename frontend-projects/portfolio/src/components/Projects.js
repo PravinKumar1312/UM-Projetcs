@@ -14,7 +14,7 @@ export default function Projects () {
 
             {
                 image: projectsImg2,
-                description: 'A Expence-Tracker website. Built with HTML, CSS & JS..!',
+                description: 'A Expense-Tracker website. Built with HTML, CSS & JS..!',
                 link: 'https://github.com/PravinKumar1312/UM-Projetcs/tree/main/frontend-projects/portfolio/expense-tracker'
             },
 
