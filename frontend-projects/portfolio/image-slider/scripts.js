@@ -1,40 +1,39 @@
-let next = document.querySelector('#next');
-let prev = document.querySelector('#prev');
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+let slideInterval;
+const intervalDuration = 5000; // 5 seconds
 
-next.addEventListener('click', function () {
-    let items = document.querySelectorAll('.slide-item');
+function moveNext() {
+    let items = document.querySelectorAll('.item');
     document.querySelector('.slide').appendChild(items[0]);
+}
+
+function startSlider() {
+    slideInterval = setInterval(moveNext, intervalDuration);
+}
+
+function pauseSlider() {
+    clearInterval(slideInterval);
+}
+
+// Start auto-slide
+startSlider();
+
+// Manual controls
+next.addEventListener('click', function() {
+    pauseSlider();
+    moveNext();
+    startSlider();
 });
 
-prev.addEventListener('click', function () {
-    let items = document.querySelectorAll('.slide-item');
+prev.addEventListener('click', function() {
+    pauseSlider();
+    let items = document.querySelectorAll('.item');
     document.querySelector('.slide').prepend(items[items.length - 1]);
+    startSlider();
 });
 
-// let next = document.getElementById('#next');
-// let prev = document.getElementById('#prev');
-// let slideContent = document.querySelector('.slide-content');
-
-// next.addEventListener('click', () => {
-//     let main = document.querySelector('.main-slide-item');
-//     let nextItem = main.nextElementSibling || slideContent.firstElementChild;
-
-//     // Swap classes
-//     main.classList.remove('main-slide-item');
-//     main.classList.add('mini-slide-item');
-
-//     nextItem.classList.remove('mini-slide-item');
-//     nextItem.classList.add('main-slide-item');
-// });
-
-// prev.addEventListener('click', () => {
-//     let main = document.querySelector('.main-slide-item');
-//     let prevItem = main.previousElementSibling || slideContent.lastElementChild;
-
-//     // Swap classes
-//     main.classList.remove('main-slide-item');
-//     main.classList.add('mini-slide-item');
-
-//     prevItem.classList.remove('mini-slide-item');
-//     prevItem.classList.add('main-slide-item');
-// });
+// Pause on hover
+const slider = document.querySelector('.slide');
+slider.addEventListener('mouseenter', pauseSlider);
+slider.addEventListener('mouseleave', startSlider);

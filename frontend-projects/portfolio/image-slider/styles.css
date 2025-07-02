@@ -5,24 +5,9 @@
 }
 
 body {
-    background-image: url(assets/Friends\ Cast.jpeg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    min-height: 100vh;
+    background: #ccc6c6;
     overflow: hidden;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    /* Adjust the alpha for darkness */
-    z-index: -1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -32,17 +17,13 @@ body::before {
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 500px;
-    justify-content: center;
-    display: flex;
     background: #f5f5f5;
     box-shadow: 0 30px 50px #dbdbdb;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-
-.container .slide .slide-item {
+.container .slide .item {
     width: 200px;
     height: 300px;
     position: absolute;
@@ -50,15 +31,14 @@ body::before {
     transform: translate(0, -50%);
     border-radius: 20px;
     box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
     background-size: cover;
-    background-position: center;
     display: inline-block;
-    transition: 0.5s;
-    background-color: #505050;
+    transition: all 0.5s ease;
 }
 
-.slide .slide-item:nth-child(1),
-.slide .slide-item:nth-child(2) {
+.slide .item:nth-child(1),
+.slide .item:nth-child(2) {
     top: 0;
     left: 0;
     transform: translate(0, 0);
@@ -67,60 +47,66 @@ body::before {
     height: 100%;
 }
 
-.slide .slide-item:nth-child(3) {
+.slide .item:nth-child(3) {
     left: 50%;
 }
-
-.slide .slide-item:nth-child(4) {
+.slide .item:nth-child(4) {
     left: calc(50% + 220px);
 }
-
-.slide .slide-item:nth-child(5) {
+.slide .item:nth-child(5) {
     left: calc(50% + 440px);
 }
 
-.slide .slide-item:nth-child(n + 6) {
+.slide .item:nth-child(n + 6) {
     left: calc(50% + 660px);
     opacity: 0;
 }
 
-.slide-item .slide-content {
+.item .content {
     position: absolute;
     top: 50%;
-    left: 100px;
-    width: 300px;
-    text-align: left;
+    left: 50px;
+    width: auto;
+    max-width: 55%;
+    text-align: center;
     color: #eee;
     transform: translate(0, -50%);
     font-family: system-ui;
     display: none;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
 }
 
-.slide .slide-item:nth-child(2) .slide-content {
+.slide .item:nth-child(2) .content {
     display: block;
 }
 
-.slide-content .name {
-    font-size: 40px;
-    text-transform: uppercase;
-    font-weight: bold;
+.content .name {
+    font-size: 2.5rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    margin: 0 auto 15px;
     opacity: 0;
     animation: animate 1s ease-in-out 1 forwards;
+    white-space: nowrap;
+    min-width: 0;
+    box-sizing: content-box;
 }
 
-.slide-content .slide-description {
-    margin-top: 10px;
-    margin-bottom: 20px;
+.content .des {
+    margin: 15px 0;
     opacity: 0;
     animation: animate 1s ease-in-out 0.3s 1 forwards;
-}
-
-.slide-content button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0;
-    animation: animate 1s ease-in-out 0.6s 1 forwards;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 400px;
 }
 
 @keyframes animate {
@@ -129,10 +115,9 @@ body::before {
         transform: translate(0, 100px);
         filter: blur(33px);
     }
-
     to {
         opacity: 1;
-        transform: translate(0, 50px);
+        transform: translate(0);
         filter: blur(0);
     }
 }
@@ -150,6 +135,7 @@ body::before {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .see-more-btn a {
@@ -162,10 +148,7 @@ body::before {
 
 .see-more-btn:hover {
     background-color: #333;
-}
-
-.see-more-btn a:hover {
-    color: #ffeb3b;
+    transform: translateY(-2px);
 }
 
 .button button {
@@ -176,10 +159,104 @@ body::before {
     cursor: pointer;
     margin: 0 5px;
     border: 1px solid #000;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .button button:hover {
     background: #00b3ff;
-    color: #00ff1e;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .content .name {
+        white-space: normal;
+        font-size: 1.8rem;
+        padding: 10px 15px;
+    }
+    
+    .container {
+        width: 95%;
+        height: 400px;
+    }
+    
+    .item .content {
+        left: 20px;
+        max-width: 80%;
+    }
+}
+
+/* ... (keep all your existing desktop styles) ... */
+
+/* Mobile View Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        height: 70vh;
+        max-height: 500px;
+    }
+
+    /* Hide all mini preview items */
+    .slide .item:not(:nth-child(1)):not(:nth-child(2)) {
+        display: none !important;
+    }
+
+    /* Make sure the active slide takes full width */
+    .slide .item:nth-child(1),
+    .slide .item:nth-child(2) {
+        width: 100% !important;
+        height: 100% !important;
+        left: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Adjust content positioning */
+    .item .content {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 90%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Adjust text sizes */
+    .content .name {
+        font-size: 1.8rem;
+        white-space: normal;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+    }
+
+    .content .des {
+        font-size: 1rem;
+        margin: 10px auto;
+        max-width: 100%;
+    }
+
+    /* Center the navigation buttons */
+    .button {
+        bottom: 10px;
+    }
+
+    .button button {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .content .name {
+        font-size: 1.5rem;
+    }
+    
+    .content .des {
+        font-size: 0.9rem;
+    }
+    
+    .see-more-btn {
+        padding: 8px 16px;
+    }
 }
