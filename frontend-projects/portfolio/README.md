@@ -35,5 +35,3 @@ Uses React Router for smooth navigation
 
 Animations powered by Framer Motion
 
-🔗 Live Demo
-View Live Portfolio
