@@ -1,5 +1,3 @@
-Here's a **comprehensive README.md** for your React Portfolio project with detailed explanations:
-
 ```markdown
 # Pravin Kumar's Developer Portfolio
 
