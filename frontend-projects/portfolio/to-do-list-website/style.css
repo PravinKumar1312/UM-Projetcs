@@ -97,23 +97,37 @@ h2 {
   body {
     margin: 10px;
   }
-  
+
   .todo-container {
     padding: 15px;
   }
-  
+
   .todo-container input[type="text"],
   #addButton {
     padding: 8px 12px;
     font-size: 14px;
   }
-  
+
   .todo-item span {
     font-size: 16px;
   }
-  
+
   .del-btn {
     padding: 6px 10px;
     font-size: 13px;
+  }
+}
+
+/* Mobile-first styles */
+@media (max-width: 600px) {
+  .todo-container {
+    width: 95%; /* Takes almost full screen */
+    padding: 10px;
+  }
+  .todo-item span {
+    font-size: 16px; /* Smaller text */
+  }
+  #addButton {
+    padding: 8px; /* Smaller button */
   }
 }
