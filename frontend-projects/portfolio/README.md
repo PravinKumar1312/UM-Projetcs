@@ -77,6 +77,10 @@ This project is configured for easy deployment to:
    npm run deploy
    ```
 
+### Deployed
+- "link": "https://um-projetcs.vercel.app/"
+
+  
 ### Netlify (Alternative)
 1. Push to GitHub
 2. Import project in Netlify
