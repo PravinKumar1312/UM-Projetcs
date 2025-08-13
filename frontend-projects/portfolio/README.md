@@ -78,7 +78,7 @@ This project is configured for easy deployment to:
    ```
 
 ### Deployed
-- "link": "https://um-projetcs.vercel.app/"
+- Link: https://um-projetcs.vercel.app/
 
   
 ### Netlify (Alternative)
